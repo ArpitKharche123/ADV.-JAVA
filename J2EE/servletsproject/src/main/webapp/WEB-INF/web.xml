@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+    version="4.0"
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:javaee="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xml="http://www.w3.org/XML/1998/namespace"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+  <display-name>Archetype Created Web Application</display-name>
+  
+  <!-- Common Data for all the Servlet Classes -->
+  <!-- Can be Accessed in any Servlet Class using ServletContext-->
+  <context-param>
+  <!-- Common Data in key-value pair -->
+  	<param-name>url</param-name>
+  	<param-value>jdbc:postgresql://localhost/DbName</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>user</param-name>
+  	<param-value>postgres</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>password</param-name>
+  	<param-value>root1234</param-value>
+  </context-param>
+  
+  <!-- Servlet Specific data, can be accessed using ServletConfig -->
+  <!--  Use either this or @WebServlet -->
+  
+  <!-- 
+   <servlet>
+  	<servlet-name>CircleServlet</servlet-name>
+  	<servlet-class>servletConfig.Circle</servlet-class>
+  	
+  	Circle Servlet specific data
+  	<init-param>
+  		<param-name>PI</param-name>
+  		<param-value>3.142</param-value>
+  	</init-param>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>CircleServlet</servlet-name>
+  	<url-pattern>/circle</url-pattern>
+  </servlet-mapping>  -->
+  
+  
+  <!-- To check Load on Startup 
+  We can use either in this way of we can make use of @WebServlet annotation
+  
+  -->
+  <!-- <servlet>
+  	<servlet-name>ServletClass1</servlet-name>
+  	<servlet-class>ServletClasses.ServletClass1</servlet-class>
+  	<load-on-startup>
+  	1
+  	</load-on-startup>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>UserInfo</servlet-name>
+  <servlet-class>ServletClasses.UserInfo</servlet-class>
+  <load-on-startup>
+  2
+  </load-on-startup>
+  </servlet> 
+   -->
+   
+ <!--  <servlet-mapping>
+  	<servlet-name>ServletClass1</servlet-name>
+  	<url-pattern>/display</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>UserInfo</servlet-name>
+  	<url-pattern>/info</url-pattern>
+  </servlet-mapping> -->
+  
+  
+  
+  <!-- Session Management (HttpSession Login-Logout) -->
+  <context-param>
+	  <!-- Data in key value pair -->
+	  	<param-name>Username</param-name>
+	  	<param-value>admin</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>Password</param-name>
+  	<param-value>admin@123</param-value>
+  </context-param>
+  
+  
+  
+  <welcome-file-list>
+  	<welcome-file>index.jsp</welcome-file>
+  	<welcome-file>register.html</welcome-file>
+  	<welcome-file>userinfo.html</welcome-file>
+  </welcome-file-list>
+  
+  
+</web-app>
