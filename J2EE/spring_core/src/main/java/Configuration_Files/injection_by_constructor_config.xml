@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+
+	<!-- Employee bean info -->
+	<bean id="employee" class="pojo_classes.Employee">
+		<constructor-arg value="Nitesh"></constructor-arg>
+		<constructor-arg value="SWE546"></constructor-arg>
+		<constructor-arg value="B+"></constructor-arg>
+		<constructor-arg value="24"></constructor-arg>
+	</bean>
+
+	<!-- Person and Mobile bean info Object Injection -->
+	<bean id="mobile_id" class="pojo_classes.Mobile"></bean>
+	<bean id="person" class="pojo_classes.Person">
+		<!-- Injecting the mobile object -->
+		<constructor-arg ref="mobile_id"></constructor-arg>
+	</bean>
+
+	<!-- Car bean info -->
+	<bean id="car" class="pojo_classes.Car">
+		<constructor-arg value="ADV4X4"></constructor-arg>
+		<constructor-arg value="TOYOTA"></constructor-arg>
+		<!-- Injecting List -->
+		<constructor-arg>
+			<list>
+				<value>MRF</value>
+				<value>Yokohama</value>
+				<value>CEAT</value>
+				<value>Hero</value>
+			</list>
+		</constructor-arg>
+
+		<!-- Injecting Map -->
+		<constructor-arg>
+			<map>
+				<entry key="Base Manual" value="1200000.0"></entry>
+				<entry key="Base Auto" value="1800000.0"></entry>
+				<entry key="Top Manual" value="2300000.0"></entry>
+				<entry key="Top Auto" value="3200000.0"></entry>
+			</map>
+		</constructor-arg>
+
+	</bean>
+
+</beans>

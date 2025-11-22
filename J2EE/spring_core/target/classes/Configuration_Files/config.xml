@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Configuring POJO classes -->
+	<bean id="demo" class="pojo_classes.Demo"></bean>
+
+	<!-- Loading values from prod_info.properties file -->
+	<context:property-placeholder
+		location="classpath:prod_info.properties" />
+	<bean id="product" class="pojo_classes.Product">
+		<property name="name" value="${name}"></property>
+		<property name="cost" value="${cost}"></property>
+		<property name="brand" value="${brand}"></property>
+	</bean>
+
+	<!-- Bean LifeCycle Method attributes -->
+
+	<bean id="bean_life_cycle" class="pojo_classes.BeanLifecycle"
+		init-method="postConstruct" destroy-method="preDestruct"></bean>
+
+
+</beans>

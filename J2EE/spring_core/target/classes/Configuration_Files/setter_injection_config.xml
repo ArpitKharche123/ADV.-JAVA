@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Employee bean info -->
+	<bean id="employee" class="pojo_classes.Employee">
+		<!-- Injecting values for properties of Employee -->
+		<property name="name" value="Michael"></property>
+		<property name="emp_id" value="ASD123"></property>
+		<property name="blood_group" value="A+"></property>
+		<property name="age" value="23"></property>
+	</bean>
+
+
+	<!-- Person and Mobile bean info Object Injection -->
+	<bean id="mobile_id" class="pojo_classes.Mobile"></bean>
+	<bean id="person" class="pojo_classes.Person">
+		<!-- Injecting the mobile object -->
+		<property name="mobile" ref="mobile_id"></property>
+	</bean>
+
+	<!-- Car bean info -->
+	<bean id="car" class="pojo_classes.Car">
+		<property name="model" value="maybach"></property>
+		<property name="brand">
+			<value>Mercedes</value>
+		</property>
+		<property name="tyres">
+			<!-- Injecting List -->
+			<list>
+				<value>MRF</value>
+				<value>Yokohama</value>
+				<value>CEAT</value>
+				<value>Hero</value>
+			</list>
+		</property>
+
+		<property name="price">
+			<!-- Injecting Map -->
+			<map>
+				<entry key="Base Manual" value="1200000.0"></entry>
+				<entry key="Base Auto" value="1800000.0"></entry>
+				<entry key="Top Manual" value="2300000.0"></entry>
+				<entry key="Top Auto" value="3200000.0"></entry>
+			</map>
+		</property>
+
+	</bean>
+</beans>
