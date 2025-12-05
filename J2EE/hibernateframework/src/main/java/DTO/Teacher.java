@@ -30,7 +30,6 @@ import lombok.Setter;
 
 @Entity
 @Cacheable
-@Cache(usage = CacheConcurrencyStrategy.READ_WRITE, region = "teacherCache")
 public class Teacher implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
